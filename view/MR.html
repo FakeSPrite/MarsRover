@@ -6,91 +6,48 @@
 <body>
 <div >
   <h2>Mars Rover</h2>
-  <table class="table table-bordered">
-    <tr class="info">
+  <p></p>
+  <table>
+    <tr >
         <th align="center">Upper right coordinates X-Coord</th>
-      <th align="center">Upper right coordinates X-Coord</th>
+	    <th align="center">Upper right coordinates X-Coord</th>
     </tr>
-  <tr class="danger">
-      <td align="center"></th>
-      <td align="center"></th>
+  <tr >
+      <td align="center"><?=!empty($MR)?($MR->getValue('upperX')):'' ?></th>
+      <td align="center"><?=!empty($MR)?($MR->getValue('upperY')):'' ?></th>
   </tr>
-  <tr class="info">
+  <tr >
     <th align="center">Current X-Coord</th>
     <th align="center">Current Y-Coord</th>
     <th align="center">Direction</th>
   </tr>
-  <tr class="danger">
-    <td align="center"></td>
-    <td align="center"></td>
-    <td align="center"></td>
+  <tr >
+    <td align="center"><?=!empty($MR)?($MR->getValue('currentX')):'' ?></td>
+    <td align="center"><?=!empty($MR)?($MR->getValue('currentY')):'' ?></td>
+    <td align="center"><?=!empty($MR)?($MR->getValue('direction')):'' ?></td>
   </tr>
 
 </table>
 
 <br />
-<div class="container">
-  <form class="form-horizontal" action="" enctype="application/x-www-form-urlencoded" method="POST">
-    <div class="form-group">
-      <label>
-        Enter the Rover Commands below and watch the output from each command.
-       
-    </div>
-    <div class="form-group">
-      <label><input type="checkbox" class="" id="isDebugChecked" name="isDebugChecked">Debug mode</label>
-    
-      <input id="btnSubmit" class="btn btn-default" type="submit" value="Submit" />
-    </div>
-  </form>
-</div>
-</body>
-</html>
-
- 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Mars Rover</title>
-</head>
-<body>
 <div >
-  <h2>Mars Rover</h2>
-  <table class="table table-bordered">
-    <tr class="info">
-        <th align="center">Upper right coordinates X-Coord</th>
-      <th align="center">Upper right coordinates X-Coord</th>
-    </tr>
-  <tr class="danger">
-      <td align="center"></th>
-      <td align="center"></th>
-  </tr>
-  <tr class="info">
-    <th align="center">Current X-Coord</th>
-    <th align="center">Current Y-Coord</th>
-    <th align="center">Direction</th>
-  </tr>
-  <tr class="danger">
-    <td align="center"></td>
-    <td align="center"></td>
-    <td align="center"></td>
-  </tr>
-
-</table>
-
-<br />
-<div class="container">
-  <form class="form-horizontal" action="" enctype="application/x-www-form-urlencoded" method="POST">
-    <div class="form-group">
-      <label>
-        Enter the Rover Commands below and watch the output from each command.
-       
-    </div>
-    <div class="form-group">
-      <label><input type="checkbox" class="" id="isDebugChecked" name="isDebugChecked">Debug mode</label>
-    
-      <input id="btnSubmit" class="btn btn-default" type="submit" value="Submit" />
-    </div>
-  </form>
+	<form  action="" enctype="application/x-www-form-urlencoded" method="POST">
+	 	<div class="form-group">
+	 		<label>
+	 			Enter the Rover Commands below and watch the output from each command.
+	 			<input class="form-control" id="command" placeholder="Enter command" name="command">
+	 		</label>
+	 	</div>
+	 	<div >
+			<label><input type="checkbox" class="" id="isDebugChecked" name="isDebugChecked">Debug mode</label>
+			<input type="hidden" name="currentX" value="<?=!empty($MR)?($MR->getValue('currentX')):'' ?>"/>
+			<input type="hidden" name="currentY" value="<?=!empty($MR)?($MR->getValue('currentY')):'' ?>"/>
+			<input type="hidden" name="upperX" value="<?=!empty($MR)?($MR->getValue('upperX')):'' ?>"/>
+			<input type="hidden" name="upperY" value="<?=!empty($MR)?($MR->getValue('upperY')):'' ?>"/>
+			<input type="hidden" name="direction" value="<?=!empty($MR)?($MR->getValue('direction')):'' ?>"/>
+			<input id="btnSubmit" class="btn btn-default" type="submit" value="Submit" />
+		</div>
+	</form>
 </div>
 </body>
 </html>

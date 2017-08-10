@@ -14,7 +14,6 @@ $format_error = false;
 
 
 		$MR = new MR();
-	
 
 	$MR->commandInterpretation($_POST['command']);
 
