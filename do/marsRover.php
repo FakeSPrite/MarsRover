@@ -1,5 +1,5 @@
 <?php
-require_once( "../class/class.MR.php");
+require_once( "class/class.MR.php");
 
 $validDirections = 'NSEW';
 $northDirection = 'N';
@@ -22,6 +22,6 @@ if(!empty($_POST['command']))
 	$MR->commandInterpretation($_POST['command']);
 }
 
-include('../view/MR.html');
+include('view/MR.html');
 
 ?>
