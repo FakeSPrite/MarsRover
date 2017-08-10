@@ -18,6 +18,7 @@ class MR{
 		global $northDirection, $eastDirection, $southDirection, $westDirection;
 		switch ($this->direction) {
 			case $northDirection:
+				//if rover have not reached the upper right ege,move 1 step,antherwise stay the same
 				if($this->currentY<$this->upperY)
 				{
 					$this->currentY = $this->currentY + 1;
@@ -29,6 +30,7 @@ class MR{
 				}
 				break;
 			case $eastDirection:
+				//if rover have not reached the upper right ege,move 1 step,antherwise stay the same
 				if($this->currentX<$this->upperX)
 				{
 				$this->currentX = $this->currentX + 1;
@@ -40,6 +42,7 @@ class MR{
 				}
 				break;
 			case $southDirection:
+				//if rover have not reached the bottom left corner,move 1 step,antherwise stay the same
 				if($this->currentY>0)
 				{
 					$this->currentY = $this->currentY - 1;
@@ -51,6 +54,7 @@ class MR{
 				}
 				break;
 			case $westDirection:
+				//if rover have not reached the bottom left corner,move 1 step,antherwise stay the same
 				if($this->currentX>0)
 					{
 						$this->currentX = $this->currentX - 1;
@@ -146,6 +150,7 @@ class MR{
 	
 		foreach ($com_array as $single_com) 
 		{
+			// checking the input format is digital,direction or MOVE action
 			if(strpos('0123456789'.$validCommands,$single_com[0]) === false && strpos($validDirections,$single_com) === false )
 			{
 				$format_error = true;
@@ -167,6 +172,7 @@ class MR{
 			}
 			else
 			{
+				/*This is for assign upper-right coordinates or original position*/
 				if (is_numeric($single_com))
 				{
 					array_push($items, $single_com);
@@ -175,6 +181,7 @@ class MR{
 						list($this->upperX,$this->upperY) = $items;
 						$this->debugAction("this is an upper-right coordinates setting command :$this->upperX $this->upperY");
 					}
+					//This is set original position
 					elseif(count($com_array) == 3 && count($items)==2)
 					{
 						list($this->currentX,$this->currentY) = $items;
