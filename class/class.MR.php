@@ -18,7 +18,7 @@ class MR{
 		global $northDirection, $eastDirection, $southDirection, $westDirection;
 		switch ($this->direction) {
 			case $northDirection:
-				//if rover have not reached the upper right ege,move 1 step,antherwise stay the same
+				//if rover have not reached the upper right ege,move 1 step,otherwise stay the same
 				if($this->currentY<$this->upperY)
 				{
 					$this->currentY = $this->currentY + 1;
@@ -30,7 +30,7 @@ class MR{
 				}
 				break;
 			case $eastDirection:
-				//if rover have not reached the upper right ege,move 1 step,antherwise stay the same
+				//if rover have not reached the upper right ege,move 1 step,otherwise stay the same
 				if($this->currentX<$this->upperX)
 				{
 				$this->currentX = $this->currentX + 1;
@@ -42,7 +42,7 @@ class MR{
 				}
 				break;
 			case $southDirection:
-				//if rover have not reached the bottom left corner,move 1 step,antherwise stay the same
+				//if rover have not reached the bottom left corner,move 1 step,otherwise stay the same
 				if($this->currentY>0)
 				{
 					$this->currentY = $this->currentY - 1;
@@ -54,7 +54,7 @@ class MR{
 				}
 				break;
 			case $westDirection:
-				//if rover have not reached the bottom left corner,move 1 step,antherwise stay the same
+				//if rover have not reached the bottom left corner,move 1 step,otherwise stay the same
 				if($this->currentX>0)
 					{
 						$this->currentX = $this->currentX - 1;
@@ -70,6 +70,7 @@ class MR{
 	public function spinAction($d)
 	{
 		global $validDirections;
+		//do a check before turn the direction, if something goes wrong, stay the original direction
 		$this->direction = ( (strpos($validDirections, $d) >= 0)) ? $d : $this->direction;
 		$this->debugAction("Now direction is : $this->direction");
 	}
